@@ -99,12 +99,16 @@ body {
                         position: absolute;
                         right: .1em;
                         top: .1em;
-                        color: #2c9c3a;
+                        color: #555;
                         font-size: .5em;
                         font-weight: bold;
-
+                        
                         &.score-diff-neg {
                             color: #cc2d52;
+                        }
+                        
+                        &.score-diff-pos {
+                            color: #2c9c3a;
                         }
                     }
                 }

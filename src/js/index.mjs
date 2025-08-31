@@ -115,12 +115,19 @@ class Scores {
                 let diff = player.scores[i] - player.scores[i - 1];
                 let diffElement = document.createElement("span");
                 diffElement.classList.add("score-diff");
-                let diffText = diff.toFixed(0);
-                if (diffText.length == 0 || diffText[0] != "-")
-                    diffText = "+" + diffText;
-                diffElement.innerText = diffText;
-                if (diff < -1e-5)
+                let diffText;
+                if (diff > 0) {
+                    diffText = "+" + diff.toFixed(0);
+                    diffElement.classList.add("score-diff-pos");
+                }
+                else if (diff < 0) {
+                    diffText = diff.toFixed(0);
                     diffElement.classList.add("score-diff-neg");
+                }
+                else {
+                    diffText = "=";
+                }
+                diffElement.innerText = diffText;
                 cell.append(diffElement);
             }
             if (i == player.scores.length - 1)

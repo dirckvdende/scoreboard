@@ -138,11 +138,13 @@ body {
             position: absolute;
             right: .1em;
             top: .1em;
-            color: #2c9c3a;
+            color: #555;
             font-size: .5em;
             font-weight: bold; }
             .scores-table .scores > div .score-row .score-cell .score-diff.score-diff-neg {
               color: #cc2d52; }
+            .scores-table .scores > div .score-row .score-cell .score-diff.score-diff-pos {
+              color: #2c9c3a; }
         .scores-table .scores > div .score-row .score-cell-current {
           opacity: 1;
           display: flex; }
