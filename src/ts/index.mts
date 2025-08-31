@@ -259,6 +259,8 @@ function loadExpandButton(): void {
         state = !state;
         scoresElement.classList.toggle("scores-history", state);
         iconElement.innerText = state ? "remove" : "add";
+        if (state)
+            scoresElement.scrollLeft = scoresElement.scrollWidth;
     });
 }
 
