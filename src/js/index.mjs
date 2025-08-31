@@ -58,6 +58,7 @@ class Scores {
             "flex" : "none");
     }
     addEnteredScores() {
+        let anyValue = false;
         for (let player of this.#players) {
             if (player.inputElement == undefined)
                 throw new Error("Unexpected undefined input element");
@@ -65,11 +66,14 @@ class Scores {
                 continue;
             try {
                 Number(player.inputElement.value);
+                anyValue = true;
             }
             catch {
                 return;
             }
         }
+        if (!anyValue)
+            return;
         for (let player of this.#players) {
             if (player.inputElement == undefined)
                 throw new Error("Unexpected undefined input element");

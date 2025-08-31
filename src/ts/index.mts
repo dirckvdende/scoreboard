@@ -124,6 +124,7 @@ class Scores {
      */
     addEnteredScores(): void {
         // Check if all input elements contain a valid value
+        let anyValue = false;
         for (let player of this.#players) {
             if (player.inputElement == undefined)
                 throw new Error("Unexpected undefined input element");
@@ -131,10 +132,13 @@ class Scores {
                 continue;
             try {
                 Number(player.inputElement.value);
+                anyValue = true;
             } catch {
                 return;
             }
         }
+        if (!anyValue)
+            return;
         // Add scores
         for (let player of this.#players) {
             if (player.inputElement == undefined)
