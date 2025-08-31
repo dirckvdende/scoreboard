@@ -100,8 +100,12 @@ class Scores {
         this.#playersContainer.innerHTML = "";
         this.#scoresContainer.innerHTML = "";
         this.#addScoresContainer.innerHTML = "";
-        this.#players.sort((a, b) => this.#playerScore(b) -
-        this.#playerScore(a));
+        this.#players.sort((a, b) => {
+            let diff = this.#playerScore(b) - this.#playerScore(a);
+            if (diff != 0)
+                return diff;
+            return a.name.localeCompare(b.name);
+        });
         for (let player of this.#players) {
             this.#addPlayerRow(player);
             this.#addScoreRow(player);
