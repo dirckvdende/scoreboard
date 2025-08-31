@@ -100,4 +100,17 @@ class Scores {
 
 }
 
+function loadExpandButton() {
+    let state = false;
+    let element = document.getElementById("expand-button") as HTMLButtonElement;
+    let scoresElement = document.getElementById("scores") as HTMLElement;
+    let iconElement = element.querySelector(".icon") as HTMLElement;
+    element.addEventListener("click", () => {
+        state = !state;
+        scoresElement.classList.toggle("scores-history", state);
+        iconElement.innerText = state ? "remove" : "add";
+    });
+}
+
 let scores = new Scores();
+loadExpandButton();

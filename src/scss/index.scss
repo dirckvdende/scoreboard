@@ -22,7 +22,7 @@ body {
 .scores-table {
     display: flex;
     flex-direction: row;
-    align-items: flex-start;
+    align-items: stretch;
     max-width: 100%;
 
     .players {
@@ -67,6 +67,7 @@ body {
         flex-shrink: 1;
         flex-grow: 0;
         overflow-x: auto;
+        position: relative;
 
         & > div {
             display: flex;
@@ -80,7 +81,7 @@ body {
                 align-items: center;
     
                 .score-cell {
-                    display: flex;
+                    display: none;
                     justify-content: center;
                     align-items: center;
                     position: relative;
@@ -91,11 +92,7 @@ body {
                     flex-grow: 0;
                     opacity: .4;
                     height: 100%;
-    
-                    .score {
-                        
-                    }
-            
+
                     .score-diff {
                         position: absolute;
                         right: .1em;
@@ -108,7 +105,50 @@ body {
     
                 .score-cell-current {
                     opacity: 1;
+                    display: flex;
+
+                    .score {
+                        font-size: 1.2em;
+                    }
                 }
+            }
+        }
+
+    }
+    
+    .scores-history .score-cell {
+        display: flex !important;
+    }
+
+    .col-sep {
+        background-color: #bbb;
+        width: 2px;
+        margin-right: .5em;
+        position: relative;
+
+        .expand-button {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            translate: -50% -50%;
+            background-color: inherit;
+            color: #666;
+            border: none;
+            border-radius: 10em;
+            font-size: .6em;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            aspect-ratio: 1 / 1;
+            padding: .2em;
+            cursor: pointer;
+
+            .icon {
+                font-size: 1em;
+            }
+
+            &:hover {
+                opacity: .8;
             }
         }
     }
@@ -141,15 +181,6 @@ body {
             }
         }
     }
-}
-
-.fade-cover {
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    width: 2em;
-    background: linear-gradient(90deg, #eee 0%, transparent 100%);
 }
 
 .buttons-container {
