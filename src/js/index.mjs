@@ -255,6 +255,15 @@ function loadClearScoresButton() {
         });
     });
 }
+function loadFullscreenButton() {
+    let button = document.getElementById("fullscreen-button");
+    button.addEventListener("click", () => {
+        if (document.fullscreenElement == null)
+            document.body.requestFullscreen();
+        else
+            document.exitFullscreen();
+    });
+}
 let scores = new Scores();
 scores.updateDisplay();
 loadExpandButton();
@@ -263,6 +272,7 @@ loadAddPlayerButton();
 loadAddScoresButton();
 loadUndoButton();
 loadClearScoresButton();
+loadFullscreenButton();
 window.onbeforeunload = () => {
     return "Stored scores will be deleted when this page is closed!";
 };

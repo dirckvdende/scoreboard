@@ -382,6 +382,20 @@ function loadClearScoresButton(): void {
     });
 }
 
+/**
+ * Load the button that toggles fullscreen mode
+ */
+function loadFullscreenButton() {
+    let button = (document.getElementById("fullscreen-button") as
+    HTMLButtonElement);
+    button.addEventListener("click", () => {
+        if (document.fullscreenElement == null)
+            document.body.requestFullscreen();
+        else
+            document.exitFullscreen();
+    });
+}
+
 // Keep track of current scores
 let scores = new Scores();
 scores.updateDisplay();
@@ -391,6 +405,7 @@ loadAddPlayerButton();
 loadAddScoresButton();
 loadUndoButton();
 loadClearScoresButton();
+loadFullscreenButton();
 
 // Display a warning if the page is refreshed/closed
 window.onbeforeunload = () => {

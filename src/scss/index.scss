@@ -6,9 +6,9 @@ $row-height: 2.5em;
 body {
     font-family: "Lexend", sans-serif;
     font-size: 20px;
-    background-color: #eee;
     margin: 0;
     padding: 0;
+    background-color: #eee;
 }
 
 .container {
@@ -19,6 +19,7 @@ body {
     min-height: 100svh;
     box-sizing: border-box;
     padding: 3em 1em;
+    background-color: #eee;
 }
 
 .scores-table {
