@@ -15,10 +15,10 @@
 </head>
 <body>
     <div class="container">
-        <div class="scores-table">
-            <div class="players">
-                <div class="player"><span>Player A</span></div>
-                <div class="player"><span>Very long player name</span></div>
+        <div class="scores-table" id="scores-table">
+            <div class="players" id="players-output">
+                <!-- <div class="player"><span>Player A</span></div>
+                <div class="player"><span>Very long player name</span></div> -->
             </div>
             <div class="col-sep">
                 <button class="expand-button" id="expand-button">
@@ -26,8 +26,8 @@
                 </button>
             </div>
             <div class="scores" id="scores">
-                <div>
-                    <div class="score-row">
+                <div id="scores-output">
+                    <!-- <div class="score-row">
                         <div class="score-cell">
                             <span class="score">55</span>
                             <span class="score-diff">+22</span>
@@ -42,36 +42,37 @@
                             <span class="score">93</span>
                             <span class="score-diff">+1</span>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
-            <div class="add-scores">
-                <div class="add-score">
+            <div class="add-scores" id="add-scores-output">
+                <!-- <div class="add-score">
                     <input type="text" name="add-score">
                 </div>
                 <div class="add-score">
                     <input type="text" name="add-score">
-                </div>
+                </div> -->
             </div>
         </div>
+        <div id="no-players-message" class="no-players-message">Add players below to keep track of scores</div>
         <div class="buttons-container">
-            <button style="background-color: #32a852;">
+            <button style="background-color: #32a852;" id="add-scores-button">
                 <span class="material-symbols-outlined icon">add</span>
                 <span class="text">Add scores</span>
             </button>
-            <button style="background-color: #cfa321;">
+            <button style="background-color: #cfa321;" id="undo-button">
                 <span class="material-symbols-outlined icon">undo</span>
                 <span class="text">Undo add</span>
             </button>
-            <button style="background-color: #3a67ba;">
+            <button style="background-color: #3a67ba;" id="add-player-button">
                 <span class="material-symbols-outlined icon">person_add</span>
                 <span class="text">Add player</span>
             </button>
-            <button style="background-color: #c22f98;">
+            <button style="background-color: #c22f98;" id="clear-scores-button">
                 <span class="material-symbols-outlined icon">counter_0</span>
                 <span class="text">Clear scores</span>
             </button>
-            <button style="background-color: #cc2d52; width: 7.8em;">
+            <button style="background-color: #cc2d52; width: 7.8em;" id="clear-players-button">
                 <span class="material-symbols-outlined icon">delete</span>
                 <span class="text">Clear players</span>
             </button>
