@@ -186,7 +186,7 @@ body {
       height: 2.5em;
       box-sizing: border-box;
       padding: .2em 0; }
-      .scores-table .add-scores .add-score input[type=text] {
+      .scores-table .add-scores .add-score input {
         border: 2px solid #999;
         border-radius: .3em;
         box-sizing: border-box;
@@ -196,7 +196,7 @@ body {
         outline: none;
         width: 100%;
         height: 100%; }
-        .scores-table .add-scores .add-score input[type=text]:focus {
+        .scores-table .add-scores .add-score input:focus {
           border-color: black; }
 
 .buttons-container {

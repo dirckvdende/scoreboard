@@ -144,7 +144,7 @@ class Scores {
         let container = document.createElement("div");
         container.classList.add("add-score");
         let input = document.createElement("input");
-        input.type = "text";
+        input.type = "number";
         input.name = "add-score";
         container.append(input);
         this.#addScoresContainer.append(container);
