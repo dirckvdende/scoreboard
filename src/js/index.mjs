@@ -119,8 +119,8 @@ class Scores {
                 if (diffText.length == 0 || diffText[0] != "-")
                     diffText = "+" + diffText;
                 diffElement.innerText = diffText;
-                if (diff < -1e5)
-                    diffElement.classList.add('score-diff-neg');
+                if (diff < -1e-5)
+                    diffElement.classList.add("score-diff-neg");
                 cell.append(diffElement);
             }
             if (i == player.scores.length - 1)

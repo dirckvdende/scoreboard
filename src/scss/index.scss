@@ -102,6 +102,10 @@ body {
                         color: #2c9c3a;
                         font-size: .5em;
                         font-weight: bold;
+
+                        &.score-diff-neg {
+                            color: #cc2d52;
+                        }
                     }
                 }
     

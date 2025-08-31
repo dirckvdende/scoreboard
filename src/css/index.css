@@ -141,6 +141,8 @@ body {
             color: #2c9c3a;
             font-size: .5em;
             font-weight: bold; }
+            .scores-table .scores > div .score-row .score-cell .score-diff.score-diff-neg {
+              color: #cc2d52; }
         .scores-table .scores > div .score-row .score-cell-current {
           opacity: 1;
           display: flex; }
