@@ -4,8 +4,74 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <!-- Google icons -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,500,1,0" />
+    <!-- Google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap" rel="stylesheet">
+    <!-- Main stylesheet -->
+    <link rel="stylesheet" href="./src/css/index.css">
 </head>
 <body>
-    <script src="src/js/index.mjs" type="module"></script>
+    <div class="container">
+        <div class="scores-table">
+            <div class="players">
+                <div class="player"><span>Player A</span></div>
+                <div class="player"><span>Very long player name</span></div>
+            </div>
+            <div class="scores">
+                <div>
+                    <div class="score-row">
+                        <div class="score-cell">
+                            <span class="score">55</span>
+                            <span class="score-diff">+22</span>
+                        </div>
+                        <div class="score-cell score-cell-current">
+                            <span class="score">32</span>
+                            <span class="score-diff">+32</span>
+                        </div>
+                    </div>
+                    <div class="score-row">
+                        <div class="score-cell score-cell-current">
+                            <span class="score">93</span>
+                            <span class="score-diff">+1</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="add-scores">
+                <div class="add-score">
+                    <input type="text" name="add-score">
+                </div>
+                <div class="add-score">
+                    <input type="text" name="add-score">
+                </div>
+            </div>
+        </div>
+        <div class="buttons-container">
+            <button style="background-color: #32a852;">
+                <span class="material-symbols-outlined icon">add</span>
+                <span class="text">Add scores</span>
+            </button>
+            <button style="background-color: #cfa321;">
+                <span class="material-symbols-outlined icon">undo</span>
+                <span class="text">Undo add</span>
+            </button>
+            <button style="background-color: #3a67ba;">
+                <span class="material-symbols-outlined icon">person_add</span>
+                <span class="text">Add player</span>
+            </button>
+            <button style="background-color: #c22f98;">
+                <span class="material-symbols-outlined icon">counter_0</span>
+                <span class="text">Clear scores</span>
+            </button>
+            <button style="background-color: #cc2d52; width: 7.8em;">
+                <span class="material-symbols-outlined icon">delete</span>
+                <span class="text">Clear players</span>
+            </button>
+        </div>
+    </div>
+    <script src="./src/js/index.mjs" type="module"></script>
 </body>
 </html>
