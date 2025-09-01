@@ -311,20 +311,13 @@ function loadAddPlayerButton(): void {
     button.addEventListener("click", () => {
         let popup = new Popup();
         popup.title = "Add player";
+        let form = document.createElement("form");
         let input = document.createElement("input");
         input.classList.add("wide-text-input");
         input.placeholder = "Player name";
         input.name = "player-name";
-        let buttonRow = document.createElement("div");
-        buttonRow.classList.add("wide-button-row");
-        let confirmButton = document.createElement("button");
-        confirmButton.innerText = "Confirm";
-        buttonRow.append(confirmButton);
-        let warnText = document.createElement("div");
-        warnText.innerText = "";
-        popup.content.append(input, warnText, buttonRow);
-        input.focus();
-        confirmButton.addEventListener("click", () => {
+        form.append(input);
+        let submitAction = () => {
             if (input.value == "")
                 return;
             if (scores.has(input.value)) {
@@ -334,6 +327,22 @@ function loadAddPlayerButton(): void {
             scores.add(input.value);
             scores.updateDisplay();
             popup.close();
+        };
+        form.addEventListener("submit", (event) => {
+            event.preventDefault();
+            submitAction();
+        });
+        let buttonRow = document.createElement("div");
+        buttonRow.classList.add("wide-button-row");
+        let confirmButton = document.createElement("button");
+        confirmButton.innerText = "Confirm";
+        buttonRow.append(confirmButton);
+        let warnText = document.createElement("div");
+        warnText.innerText = "";
+        popup.content.append(form, warnText, buttonRow);
+        input.focus();
+        confirmButton.addEventListener("click", () => {
+            submitAction();
         });
     });
 }
