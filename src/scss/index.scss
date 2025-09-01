@@ -133,7 +133,7 @@ body {
 
     .col-sep {
         background-color: #bbb;
-        width: 2px;
+        width: .1em;
         margin-right: .2em;
         position: relative;
 
@@ -176,7 +176,7 @@ body {
             padding: .2em 0;
 
             input {
-                border: 2px solid #999;
+                border: .1em solid #999;
                 border-radius: .3em;
                 box-sizing: border-box;
                 padding: 0 0 0 .8em;
@@ -216,12 +216,12 @@ body {
         cursor: pointer;
         border-radius: .4em;
         box-sizing: border-box;
-        border: 2px solid transparent;
+        border: .1em solid transparent;
         margin: .2em;
         padding: .2em;
 
         &:hover {
-            border: 2px solid black;
+            border: .1em solid black;
         }
 
         .icon {
@@ -237,7 +237,7 @@ body {
 }
 
 .wide-text-input {
-    border: 2px solid #999;
+    border: .1em solid #999;
     border-radius: .3em;
     box-sizing: border-box;
     padding: .3em 0 .3em .8em;

@@ -21,8 +21,8 @@
     display: flex;
     flex-direction: column;
     align-items: stretch;
-    width: 400px;
-    box-shadow: 0 0 10px -5px black; }
+    width: 18em;
+    box-shadow: 0 0 1em -.5em black; }
     .popup .main .title {
       background-color: black;
       color: white;
@@ -155,7 +155,7 @@ body {
     display: flex !important; }
   .scores-table .col-sep {
     background-color: #bbb;
-    width: 2px;
+    width: .1em;
     margin-right: .2em;
     position: relative; }
     .scores-table .col-sep .expand-button {
@@ -188,7 +188,7 @@ body {
       box-sizing: border-box;
       padding: .2em 0; }
       .scores-table .add-scores .add-score input {
-        border: 2px solid #999;
+        border: .1em solid #999;
         border-radius: .3em;
         box-sizing: border-box;
         padding: 0 0 0 .8em;
@@ -221,11 +221,11 @@ body {
     cursor: pointer;
     border-radius: .4em;
     box-sizing: border-box;
-    border: 2px solid transparent;
+    border: .1em solid transparent;
     margin: .2em;
     padding: .2em; }
     .buttons-container button:hover {
-      border: 2px solid black; }
+      border: .1em solid black; }
     .buttons-container button .icon {
       font-size: 1.3em; }
     .buttons-container button .text {
@@ -234,7 +234,7 @@ body {
       margin-top: .5em; }
 
 .wide-text-input {
-  border: 2px solid #999;
+  border: .1em solid #999;
   border-radius: .3em;
   box-sizing: border-box;
   padding: .3em 0 .3em .8em;
