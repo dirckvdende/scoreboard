@@ -259,7 +259,7 @@ function loadFullscreenButton() {
     let button = document.getElementById("fullscreen-button");
     button.addEventListener("click", () => {
         if (document.fullscreenElement == null)
-            document.body.requestFullscreen();
+            document.documentElement.requestFullscreen();
         else
             document.exitFullscreen();
     });
