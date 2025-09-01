@@ -58,7 +58,7 @@
 
 body {
   font-family: "Lexend", sans-serif;
-  font-size: min(5.8lvw, 4lvh);
+  font-size: min(5.8lvw, 4lvh, 32px);
   margin: 0;
   padding: 0;
   background-color: #eee; }
