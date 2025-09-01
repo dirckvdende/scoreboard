@@ -109,7 +109,6 @@ body {
         text-overflow: ellipsis; }
   .scores-table .scores {
     display: flex;
-    max-width: 10em;
     flex-shrink: 1;
     flex-grow: 0;
     overflow-x: auto;
@@ -157,7 +156,8 @@ body {
     background-color: #bbb;
     width: .1em;
     margin-right: .2em;
-    position: relative; }
+    position: relative;
+    flex-shrink: 0; }
     .scores-table .col-sep .expand-button {
       position: absolute;
       top: 50%;
