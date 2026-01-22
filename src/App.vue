@@ -6,6 +6,7 @@
     import PopupRowButton from './components/PopupRowButton.vue';
     import { mdiCheck } from '@mdi/js';
     import AppScoreboard from './components/AppScoreboard.vue';
+    import AppButtons from './components/AppButtons.vue';
 
     const popupVisible = ref(true)
 </script>
@@ -14,6 +15,7 @@
     <div :class="$style.container">
         <div>
             <AppScoreboard />
+            <AppButtons />
         </div>
     </div>
     <Popup v-model:visible="popupVisible">
@@ -31,7 +33,7 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        width: 100dvw;
+        width: 100%;
         height: 100dvh;
         box-sizing: border-box;
         padding: 1em;
