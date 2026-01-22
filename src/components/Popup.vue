@@ -1,9 +1,26 @@
 <script lang="ts" setup>
     import { mdiClose } from '@mdi/js';
     import Icon from './Icon.vue';
+    import { watch } from 'vue';
 
     /** Whether the popup is visible */
     const visible = defineModel("visible", { default: false })
+
+    const emit = defineEmits<{
+        /** Emitted when the popup is made visible */
+        (e: "open"): void
+        /** Emitted when the popup is made invisible */
+        (e: "close"): void
+    }>()
+
+    watch(visible, (value, oldValue) => {
+        if (value == oldValue)
+            return
+        if (value)
+            emit('open')
+        else
+            emit('close')
+    })
 </script>
 
 <template>

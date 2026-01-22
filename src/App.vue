@@ -34,7 +34,7 @@
         align-items: center;
         justify-content: center;
         width: 100%;
-        height: 100dvh;
+        min-height: 100dvh;
         box-sizing: border-box;
         padding: 1em;
 

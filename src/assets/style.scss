@@ -7,7 +7,7 @@ body {
     margin: 0;
 }
 
-button {
+button, input {
     font-size: 1em;
     font-family: inherit;
     border: none;
@@ -16,4 +16,5 @@ button {
 
 * {
     user-select: none;
+    outline: none;
 }

@@ -1,10 +1,14 @@
 <script setup lang="ts">
     import { mdiAlertCircle } from '@mdi/js';
     import Icon from './Icon.vue';
-    import { computed, useTemplateRef } from 'vue';
+    import { useTemplateRef } from 'vue';
+
+    const { visible = false } = defineProps<{
+        /** Whether the error is visible */
+        visible?: boolean
+    }>()
 
     const textSlot = useTemplateRef("text")
-    const visible = computed(() => Boolean(textSlot.value?.innerHTML.trim()))
 </script>
 
 <template>
