@@ -1,0 +1,19 @@
+
+@use "./colors.scss";
+
+body {
+    font-family: "Lexend", sans-serif;
+    font-size: min(5.8lvw, 4lvh, 32px);
+    margin: 0;
+}
+
+button {
+    font-size: 1em;
+    font-family: inherit;
+    border: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+* {
+    user-select: none;
+}
