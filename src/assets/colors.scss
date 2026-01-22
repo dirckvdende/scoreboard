@@ -1,13 +1,20 @@
 
 body {
+    background-color: #eee;
+    color: var(--text-color);
+
     --background-color: white;
     --text-color: black;
-    --soft-text-color: #333;
-    --very-soft-text-color: #777;
+    --text-color-soft: #555;
+    --text-color-very-soft: #777;
 
     --inverse-background-color: #333;
     --inverse-text-color: white;
 
-    --accent-color-green: #2c9c3a;
+    --accent-color-green: #32a852;
+    --accent-color-yellow: #cfa321;
+    --accent-color-blue: #3a67ba;
+    --accent-color-pink: #c22f98;
     --accent-color-red: #cc2d52;
+    --accent-color-cyan: #38a196;
 }

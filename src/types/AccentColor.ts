@@ -1,2 +1,8 @@
 
-export type AccentColor = "green" | "red"
+export type AccentColor =
+    | "green"
+    | "yellow"
+    | "blue"
+    | "pink"
+    | "red"
+    | "cyan"
