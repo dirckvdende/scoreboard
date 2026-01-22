@@ -1,5 +1,5 @@
 
-import { type Player } from "@/types/Player";
+import { parseNextScore, type Player } from "@/types/Player";
 import { defineStore } from "pinia";
 import { computed, readonly, ref } from "vue";
 
@@ -21,7 +21,11 @@ export const usePlayersStore = defineStore("players", () => {
         let scores: number[] = []
         for (let i = 0; i < gameLength.value; i++)
             scores.push(0)
-        players.value.push({ name, scores })
+        players.value.push({
+            name,
+            scores,
+            nextScore: "",
+        })
         return true
     }
 
@@ -39,6 +43,54 @@ export const usePlayersStore = defineStore("players", () => {
         return players.value.length != lengthBefore
     }
 
+    /**
+     * Add values from nextScore fields to the score histories. If all nextScore
+     * fields are empty, nothing happens
+     */
+    function addNextScores(): void {
+        if (players.value.findIndex(({ nextScore }) => nextScore != "") == -1)
+            return
+        for (const player of players.value) {
+            const score = player.scores[player.scores.length - 1] ?? 0
+            player.scores.push(score + parseNextScore(player))
+        }
+        resetNextScores()
+    }
+
+    /** Reset nextScore fields of all players */
+    function resetNextScores(): void {
+        for (const player of players.value)
+            player.nextScore = ""
+    }
+
+    /** Reset the scores (including histories) of all players */
+    function resetScores(): void {
+        for (const player of players.value) {
+            player.scores = [0]
+            player.nextScore = ""
+        }
+    }
+
+    /** Remove all players */
+    function removeAllPlayers(): void {
+        players.value = []
+    }
+
+    /**
+     * Undo the last scores that were added and put them in the nextScore
+     * fields. Has no effect if the game length is 1
+     */
+    function undo(): void {
+        if (gameLength.value <= 1)
+            return
+        for (const player of players.value) {
+            const len = player.scores.length
+            const diff = player.scores[len - 1]! - player.scores[len - 2]!
+            player.nextScore = String(diff)
+            player.scores.pop()
+        }
+    }
+
     return {
         /** Readonly ref of players */
         players: readonly(players),
@@ -46,5 +98,10 @@ export const usePlayersStore = defineStore("players", () => {
         gameLength,
         addPlayer,
         removePlayer,
+        addNextScores,
+        resetNextScores,
+        resetScores,
+        removeAllPlayers,
+        undo,
     }
 })
