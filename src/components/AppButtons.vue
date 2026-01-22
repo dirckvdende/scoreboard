@@ -1,6 +1,5 @@
 <script lang="ts" setup>
     import {
-        mdiAccountPlus,
         mdiArrowULeftTop,
         mdiFullscreen,
         mdiNumeric0Circle,
@@ -8,6 +7,7 @@
         mdiTrashCan,
     } from '@mdi/js';
     import ActionButton from './ActionButton.vue';
+    import AppButtonAddPlayer from './AppButtonAddPlayer.vue';
 </script>
 
 <template>
@@ -18,9 +18,7 @@
         <ActionButton :icon="mdiArrowULeftTop" color="yellow">
             Undo add
         </ActionButton>
-        <ActionButton :icon="mdiAccountPlus" color="blue">
-            Add player
-        </ActionButton>
+        <AppButtonAddPlayer />
         <ActionButton :icon="mdiNumeric0Circle" color="pink">
             Clear scores
         </ActionButton>

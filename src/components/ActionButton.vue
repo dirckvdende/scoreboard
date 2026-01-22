@@ -60,6 +60,7 @@
 
         &:hover {
             border: .1em solid var(--inverse-background-color);
+            padding: .3em;
         }
     }
 </style>

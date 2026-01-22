@@ -8,7 +8,7 @@
 
 <template>
     <Teleport to="body">
-        <div :class="$style.container" v-if="visible">
+        <div :class="[$style.container, { [$style.visible]: visible }]">
             <div :class="$style.popup">
                 <div :class="$style.head">
                     <div :class="$style.space" />
@@ -41,12 +41,18 @@
         justify-content: center;
         padding: 1em;
         box-sizing: border-box;
+        pointer-events: none;
 
         .popup {
             width: 100%;
             height: auto;
             box-shadow: 0 .3em .8em -.4em #0008;
             max-width: 17em;
+            overflow: hidden;
+            border-radius: .4em;
+            opacity: 0;
+            translate: 0 .5em;
+            transition: opacity .1s, translate .1s;
 
             .head {
                 background-color: var(--inverse-background-color);
@@ -54,7 +60,7 @@
                 display: flex;
                 justify-content: center;
                 align-items: center;
-                padding: .4em .8em;
+                padding: .4em;
                 box-sizing: border-box;
                 width: 100%;
 
@@ -109,12 +115,27 @@
 
         .background {
             position: absolute;
+            opacity: 0;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
             background-color: #0003;
             z-index: -1;
+            transition: opacity .1s;
+        }
+
+        &.visible {
+            pointer-events: initial;
+
+            .popup {
+                opacity: 1;
+                translate: 0 0;
+            }
+
+            .background {
+                opacity: 1;
+            }
         }
     }
 </style>

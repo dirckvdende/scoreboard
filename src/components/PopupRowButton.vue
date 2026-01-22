@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-    import { AccentColor } from '@/types/AccentColor';
+    import { type AccentColor } from '@/types/AccentColor';
     import Icon from './Icon.vue';
 
     const {
@@ -11,12 +11,17 @@
         /** Accent color to give the button (default green) */
         color?: AccentColor
     }>()
+
+    const emit = defineEmits<{
+        /** Emitted when the button is clicked */
+        (e: "click"): void
+    }>()
 </script>
 
 <template>
     <button :class="$style.button" :style="{
         backgroundColor: `var(--accent-color-${color})`,
-    }">
+    }" @click="emit('click')">
         <div :class="$style.icon" v-if="icon">
             <Icon :path="icon" :class="$style.svg" />
         </div>
@@ -35,6 +40,7 @@
         cursor: pointer;
         display: flex;
         align-items: center;
+        border-radius: .4em;
 
         .icon {
             fill: white;
@@ -57,6 +63,7 @@
             right: .1em;
             bottom: .1em;
             border: .1em solid white;
+            border-radius: .35em;
         }
 
         &:hover {
