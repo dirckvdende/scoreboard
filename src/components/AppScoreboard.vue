@@ -9,7 +9,10 @@
 
 <template>
     <div v-if="players.length > 0" :class="$style.container" >
-        <PlayerScore v-for="player in players" :player="player" />
+        <PlayerScore
+            v-for="player in players"
+            :key="player.name"
+            :player="player" />
     </div>
     <NoScoresMessage v-else />
 </template>

@@ -3,12 +3,17 @@
     import ActionButton from './ActionButton.vue';
     import { mdiCancel } from '@mdi/js';
     import { useSettingsStore } from '@/stores/useSettingsStore';
+    import { usePlayersStore } from '@/stores/usePlayersStore';
 
     const { editMode } = storeToRefs(useSettingsStore())
+    const { resetNextScores } = usePlayersStore()
 </script>
 
 <template>
-    <ActionButton :icon="mdiCancel" color="red" @click="editMode = false">
-        Cancel
+    <ActionButton
+        :icon="mdiCancel"
+        color="red"
+        @click="editMode = false; resetNextScores()">
+        Don't add
     </ActionButton>
 </template>

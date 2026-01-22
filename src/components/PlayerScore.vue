@@ -47,6 +47,7 @@
         display: flex;
         font-size: 2em;
         align-items: center;
+        height: 1.5em;
 
         .name {
             width: 100%;
@@ -65,7 +66,6 @@
             flex-shrink: 0;
             text-align: center;
             position: relative;
-            padding: .25em 0;
 
             .text {
                 color: var(--text-color);
@@ -74,14 +74,14 @@
             .annotation {
                 position: absolute;
                 font-weight: bold;
-                top: -.25em;
+                top: -.5em;
                 right: 0;
                 font-size: .4em;
             }
         }
 
         .edit {
-            width: 3em;
+            width: 2.5em;
             flex-shrink: 0;
             text-align: center;
             position: relative;
@@ -91,7 +91,7 @@
                 width: 100%;
                 border-radius: .3em;
                 box-sizing: border-box;
-                padding: .2em .2em .2em .4em;
+                padding: .1em .2em .1em .4em;
                 font-size: .9em;
                 margin: .05em 0;
             }

@@ -9,6 +9,27 @@ export const usePlayersStore = defineStore("players", () => {
     const gameLength = computed(() => players.value[0]?.scores.length ?? 1)
 
     /**
+     * Get the current score of a player
+     * @param player The player to get the score of
+     * @returns The score
+     */
+    function scoreOf(player: Player): number {
+        return player.scores[player.scores.length - 1] ?? 0
+    }
+
+    /**
+     * Sort the players by score (descending) and then alphabetically
+     * (ascending)
+     */
+    function sort(): void {
+        players.value.sort((playerA, playerB) => {
+            if (scoreOf(playerA) == scoreOf(playerB))
+                return playerA.name.localeCompare(playerB.name)
+            return scoreOf(playerB) - scoreOf(playerA)
+        })
+    }
+
+    /**
      * Add a player
      * @param name The name of the player
      * @returns A boolean indicating if the player was added. Returns false if
@@ -26,6 +47,7 @@ export const usePlayersStore = defineStore("players", () => {
             scores,
             nextScore: "",
         })
+        sort()
         return true
     }
 
@@ -40,6 +62,7 @@ export const usePlayersStore = defineStore("players", () => {
         const lengthBefore = players.value.length
         players.value = players.value.filter(({ name: otherName }) =>
             otherName != name)
+        sort()
         return players.value.length != lengthBefore
     }
 
@@ -55,6 +78,7 @@ export const usePlayersStore = defineStore("players", () => {
             player.scores.push(score + parseNextScore(player))
         }
         resetNextScores()
+        sort()
     }
 
     /** Reset nextScore fields of all players */
@@ -69,6 +93,7 @@ export const usePlayersStore = defineStore("players", () => {
             player.scores = [0]
             player.nextScore = ""
         }
+        sort()
     }
 
     /** Remove all players */
@@ -89,6 +114,7 @@ export const usePlayersStore = defineStore("players", () => {
             player.nextScore = String(diff)
             player.scores.pop()
         }
+        sort()
     }
 
     return {
