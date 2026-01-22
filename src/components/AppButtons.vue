@@ -15,18 +15,20 @@
 
 <template>
     <div :class="$style.container">
-        <template v-if="!editMode">
-            <AppButtonAddScores />
-            <AppButtonUndo />
-            <AppButtonAddPlayer />
-            <AppButtonClearScores />
-            <AppButtonClearPlayers />
-            <AppButtonFullscreen />
-        </template>
-        <template v-else>
-            <AppButtonAddScoresCancel />
-            <AppButtonAddScoresConfirm />
-        </template>
+        <div>
+            <template v-if="!editMode">
+                <AppButtonAddScores />
+                <AppButtonUndo />
+                <AppButtonAddPlayer />
+                <AppButtonClearScores />
+                <AppButtonClearPlayers />
+                <AppButtonFullscreen />
+            </template>
+            <template v-else>
+                <AppButtonAddScoresCancel />
+                <AppButtonAddScoresConfirm />
+            </template>
+        </div>
     </div>
 </template>
 
@@ -35,10 +37,18 @@
         width: 100%;
         max-width: 15em;
         display: flex;
-        justify-content: center;
-        margin: .5em;
-        row-gap: .4em;
-        column-gap: .4em;
-        flex-wrap: wrap;
+        align-items: flex-start;
+        min-height: 9em;
+        margin-top: .5em;
+
+        & > div {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            margin: .5em;
+            row-gap: .4em;
+            column-gap: .4em;
+            flex-wrap: wrap;
+        }
     }
 </style>

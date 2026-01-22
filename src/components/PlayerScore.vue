@@ -74,25 +74,26 @@
             .annotation {
                 position: absolute;
                 font-weight: bold;
-                top: 0;
+                top: -.25em;
                 right: 0;
                 font-size: .4em;
             }
         }
 
         .edit {
-            width: 2em;
+            width: 3em;
             flex-shrink: 0;
             text-align: center;
             position: relative;
-            padding: .25em 0;
 
             .input {
-                border: .1em solid var(--text-color-very-soft);
+                border: .07em solid var(--text-color-very-soft);
                 width: 100%;
                 border-radius: .3em;
                 box-sizing: border-box;
                 padding: .2em .2em .2em .4em;
+                font-size: .9em;
+                margin: .05em 0;
             }
         }
     }
