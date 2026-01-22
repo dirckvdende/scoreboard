@@ -1,14 +1,7 @@
 <script setup lang="ts">
-    import Popup from '@/components/Popup.vue';
-    import { ref } from 'vue';
     import "@/assets/style.scss";
-    import PopupRow from './components/PopupRow.vue';
-    import PopupRowButton from './components/PopupRowButton.vue';
-    import { mdiCheck } from '@mdi/js';
     import AppScoreboard from './components/AppScoreboard.vue';
     import AppButtons from './components/AppButtons.vue';
-
-    const popupVisible = ref(true)
 </script>
 
 <template>
@@ -18,13 +11,6 @@
             <AppButtons />
         </div>
     </div>
-    <Popup v-model:visible="popupVisible">
-        <template #title>Erase scores</template>
-        Are you sure you want to reset all scores?
-        <PopupRow>
-            <PopupRowButton :icon="mdiCheck">Confirm</PopupRowButton>
-        </PopupRow>
-    </Popup>
 </template>
 
 <style lang="scss" module>
@@ -36,7 +22,11 @@
         width: 100%;
         min-height: 100dvh;
         box-sizing: border-box;
-        padding: 1em;
+        padding:
+            calc(1em + env(safe-area-inset-top))
+            calc(1em + env(safe-area-inset-right))
+            calc(1em + env(safe-area-inset-bottom))
+            calc(1em + env(safe-area-inset-left));
 
         & > div {
             width: 100%;

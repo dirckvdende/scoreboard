@@ -1,33 +1,32 @@
 <script lang="ts" setup>
-    import {
-        mdiArrowULeftTop,
-        mdiFullscreen,
-        mdiNumeric0Circle,
-        mdiPlus,
-        mdiTrashCan,
-    } from '@mdi/js';
-    import ActionButton from './ActionButton.vue';
+    import { storeToRefs } from 'pinia';
+    import { useSettingsStore } from '@/stores/useSettingsStore';
     import AppButtonAddPlayer from './AppButtonAddPlayer.vue';
+    import AppButtonClearPlayers from './AppButtonClearPlayers.vue';
+    import AppButtonAddScores from './AppButtonAddScores.vue';
+    import AppButtonUndo from './AppButtonUndo.vue';
+    import AppButtonFullscreen from './AppButtonFullscreen.vue';
+    import AppButtonClearScores from './AppButtonClearScores.vue';
+    import AppButtonAddScoresCancel from './AppButtonAddScoresCancel.vue';
+    import AppButtonAddScoresConfirm from './AppButtonAddScoresConfirm.vue';
+
+    const { editMode } = storeToRefs(useSettingsStore())
 </script>
 
 <template>
     <div :class="$style.container">
-        <ActionButton :icon="mdiPlus" color="green">
-            Add scores
-        </ActionButton>
-        <ActionButton :icon="mdiArrowULeftTop" color="yellow">
-            Undo add
-        </ActionButton>
-        <AppButtonAddPlayer />
-        <ActionButton :icon="mdiNumeric0Circle" color="pink">
-            Clear scores
-        </ActionButton>
-        <ActionButton :icon="mdiTrashCan" color="red">
-            Clear players
-        </ActionButton>
-        <ActionButton :icon="mdiFullscreen" color="cyan">
-            Fullscreen
-        </ActionButton>
+        <template v-if="!editMode">
+            <AppButtonAddScores />
+            <AppButtonUndo />
+            <AppButtonAddPlayer />
+            <AppButtonClearScores />
+            <AppButtonClearPlayers />
+            <AppButtonFullscreen />
+        </template>
+        <template v-else>
+            <AppButtonAddScoresCancel />
+            <AppButtonAddScoresConfirm />
+        </template>
     </div>
 </template>
 

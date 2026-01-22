@@ -46,6 +46,8 @@
 </template>
 
 <style lang="scss" module>
+    $transition-time: .2s;
+
     .container {
         position: fixed;
         top: 0;
@@ -69,7 +71,7 @@
             border-radius: .4em;
             opacity: 0;
             translate: 0 .5em;
-            transition: opacity .1s, translate .1s;
+            transition: opacity $transition-time, translate $transition-time;
 
             .head {
                 background-color: var(--inverse-background-color);
@@ -139,7 +141,7 @@
             height: 100%;
             background-color: #0003;
             z-index: -1;
-            transition: opacity .1s;
+            transition: opacity $transition-time;
         }
 
         &.visible {

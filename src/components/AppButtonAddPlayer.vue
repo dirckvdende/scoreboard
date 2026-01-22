@@ -41,7 +41,7 @@
     <Popup
         v-model:visible="popupVisible"
         @open="error = ''; name = ''; input?.focus()">
-        <template #title>Add Player</template>
+        <template #title>Add player</template>
         <form @submit="$event.preventDefault(); confirm()">
             <PopupInput
                 placeholder="Player name"

@@ -1,6 +1,8 @@
 <script lang="ts" setup>
     import { usePlayerScore } from '@/composables/usePlayerScore';
+    import { useSettingsStore } from '@/stores/useSettingsStore';
     import { type Player } from '@/types/Player';
+    import { storeToRefs } from 'pinia';
 
     const { player } = defineProps<{
         /** The player to display the score of */
@@ -8,6 +10,7 @@
     }>()
 
     const { scoreText, scoreChange, scoreChangeText } = usePlayerScore(player)
+    const { editMode } = storeToRefs(useSettingsStore())
 </script>
 
 <template>
@@ -15,7 +18,7 @@
         <div :class="$style.name">
             {{ player.name }}
         </div>
-        <div :class="$style.score">
+        <div v-if="!editMode" :class="$style.score">
             <div :class="$style.text">
                 {{ scoreText }}
             </div>
@@ -26,6 +29,14 @@
             }">
                 {{ scoreChangeText }}
             </div>
+        </div>
+        <div v-else :class="$style.edit">
+            <input
+                :class="$style.input"
+                type="number"
+                :value="player.nextScore"
+                @input="player.nextScore = String(($event.target as any).value)"
+                />
         </div>
     </div>
 </template>
@@ -57,7 +68,7 @@
             padding: .25em 0;
 
             .text {
-
+                color: var(--text-color);
             }
 
             .annotation {
@@ -66,6 +77,22 @@
                 top: 0;
                 right: 0;
                 font-size: .4em;
+            }
+        }
+
+        .edit {
+            width: 2em;
+            flex-shrink: 0;
+            text-align: center;
+            position: relative;
+            padding: .25em 0;
+
+            .input {
+                border: .1em solid var(--text-color-very-soft);
+                width: 100%;
+                border-radius: .3em;
+                box-sizing: border-box;
+                padding: .2em .2em .2em .4em;
             }
         }
     }

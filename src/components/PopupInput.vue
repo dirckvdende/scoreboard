@@ -47,5 +47,9 @@
         &:focus {
             border-color: var(--text-color-soft);
         }
+
+        &::placeholder {
+            color: var(--text-color-faint);
+        }
     }
 </style>

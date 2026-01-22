@@ -92,8 +92,8 @@ export const usePlayersStore = defineStore("players", () => {
     }
 
     return {
-        /** Readonly ref of players */
-        players: readonly(players),
+        /** List of players with their names and score histories */
+        players,
         /** Length of the scores history of the players */
         gameLength,
         addPlayer,
