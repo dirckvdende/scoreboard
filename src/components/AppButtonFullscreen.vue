@@ -8,10 +8,9 @@
     /** Toggle fullscreen mode */
     function toggleFullscreen(): void {
         if (document.fullscreenElement == null)
-            document.documentElement.requestFullscreen()
+            document.documentElement.requestFullscreen().then(updateHeight)
         else
-            document.exitFullscreen()
-        updateHeight()
+            document.exitFullscreen().then(updateHeight)
     }
 </script>
 
