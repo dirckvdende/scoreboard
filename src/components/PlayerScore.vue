@@ -51,7 +51,7 @@
         display: flex;
         font-size: 2em;
         align-items: center;
-        height: 1.5em;
+        height: 1.7em;
 
         .name {
             width: 100%;
@@ -78,7 +78,7 @@
             .annotation {
                 position: absolute;
                 font-weight: bold;
-                top: -.5em;
+                top: -.7em;
                 right: 0;
                 font-size: .4em;
             }

@@ -43,7 +43,7 @@
         display: flex;
         align-items: flex-start;
         min-height: 12.6em;
-        margin-top: .5em;
+        margin-top: 2em;
 
         & > div {
             width: 100%;
