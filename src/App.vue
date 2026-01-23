@@ -11,7 +11,7 @@
         heightVar.value = `${window.innerHeight}px`
     }
 
-    useEventListener("resize", updateHeight)
+    // useEventListener("resize", updateHeight)
     updateHeight()
 </script>
 
