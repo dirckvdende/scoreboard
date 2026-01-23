@@ -7,13 +7,20 @@
 
     const { undo } = usePlayersStore()
     const { editMode } = storeToRefs(useSettingsStore())
+
+    /** Called when the button is clicked */
+    function click(): void {
+        const done = undo()
+        if (done)
+            editMode.value = true
+    }
 </script>
 
 <template>
     <ActionButton
         :icon="mdiArrowULeftTop"
         color="yellow"
-        @click="undo(); editMode = true">
+        @click="click">
         Undo add
     </ActionButton>
 </template>

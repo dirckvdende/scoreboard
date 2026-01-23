@@ -104,10 +104,11 @@ export const usePlayersStore = defineStore("players", () => {
     /**
      * Undo the last scores that were added and put them in the nextScore
      * fields. Has no effect if the game length is 1
+     * @return A boolean indicating if an undo was done
      */
-    function undo(): void {
+    function undo(): boolean {
         if (gameLength.value <= 1)
-            return
+            return false
         for (const player of players.value) {
             const len = player.scores.length
             const diff = player.scores[len - 1]! - player.scores[len - 2]!
@@ -115,6 +116,7 @@ export const usePlayersStore = defineStore("players", () => {
             player.scores.pop()
         }
         sort()
+        return true
     }
 
     return {

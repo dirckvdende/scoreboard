@@ -6,14 +6,23 @@
     import { usePlayersStore } from '@/stores/usePlayersStore';
 
     const { editMode } = storeToRefs(useSettingsStore())
+    const { players } = storeToRefs(usePlayersStore())
     const { resetNextScores } = usePlayersStore()
+
+    /** Called when the button is clicked */
+    function click(): void {
+        if (players.value.length == 0)
+            return
+        resetNextScores()
+        editMode.value = true
+    }
 </script>
 
 <template>
     <ActionButton
         :icon="mdiPlus"
         color="green"
-        @click="resetNextScores(); editMode = true">
+        @click="click">
         Add scores
     </ActionButton>
 </template>

@@ -6,16 +6,31 @@
     import PopupRow from './PopupRow.vue';
     import PopupRowButton from './PopupRowButton.vue';
     import { usePlayersStore } from '@/stores/usePlayersStore';
+    import { storeToRefs } from 'pinia';
 
     const popupVisible = ref(false)
     const { removeAllPlayers } = usePlayersStore()
+    const { players } = storeToRefs(usePlayersStore())
+
+    /** Called when the button is clicked */
+    function click(): void {
+        if (players.value.length == 0)
+            return
+        popupVisible.value = true
+    }
+
+    /** Called when the confirm button of the popup is clicked */
+    function clickConfirm(): void {
+        removeAllPlayers()
+        popupVisible.value = false
+    }
 </script>
 
 <template>
     <ActionButton
         :icon="mdiTrashCan"
         color="red"
-        @click="popupVisible = true">
+        @click="click">
         Clear players
     </ActionButton>
     <Popup v-model:visible="popupVisible">
@@ -31,7 +46,7 @@
             <PopupRowButton
                 :icon="mdiCheck"
                 color="green"
-                @click="removeAllPlayers(); popupVisible = false">
+                @click="clickConfirm">
                 Confirm
             </PopupRowButton>
         </PopupRow>
