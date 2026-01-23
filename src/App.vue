@@ -23,10 +23,10 @@
         min-height: 100dvh;
         box-sizing: border-box;
         padding:
-            calc(1em + env(safe-area-inset-top))
-            calc(1em + env(safe-area-inset-right))
-            calc(1em + env(safe-area-inset-bottom))
-            calc(1em + env(safe-area-inset-left));
+            calc(1.5em + env(safe-area-inset-top))
+            calc(1.5em + env(safe-area-inset-right))
+            calc(1.5em + env(safe-area-inset-bottom))
+            calc(1.5em + env(safe-area-inset-left));
 
         & > div {
             width: 100%;

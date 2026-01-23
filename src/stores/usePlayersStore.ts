@@ -7,6 +7,8 @@ import { computed, readonly, ref } from "vue";
 export const usePlayersStore = defineStore("players", () => {
     const players = ref<Player[]>([])
     const gameLength = computed(() => players.value[0]?.scores.length ?? 1)
+    const maxScoreLength = computed(() => Math.max(...players.value.map(
+        ({ scores }) => (scores[scores.length - 1] ?? 0).toFixed(0).length)))
 
     /**
      * Get the current score of a player
@@ -124,6 +126,11 @@ export const usePlayersStore = defineStore("players", () => {
         players,
         /** Length of the scores history of the players */
         gameLength,
+        /**
+         * Maximum length in characters of a score, e.g. "-34" is length 3 and
+         * "12" is length 2
+         */
+        maxScoreLength,
         addPlayer,
         removePlayer,
         addNextScores,

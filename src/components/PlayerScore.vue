@@ -1,5 +1,6 @@
 <script lang="ts" setup>
     import { usePlayerScore } from '@/composables/usePlayerScore';
+    import { usePlayersStore } from '@/stores/usePlayersStore';
     import { useSettingsStore } from '@/stores/useSettingsStore';
     import { type Player } from '@/types/Player';
     import { storeToRefs } from 'pinia';
@@ -10,6 +11,7 @@
     }>()
 
     const { scoreText, scoreChange, scoreChangeText } = usePlayerScore(player)
+    const { maxScoreLength } = storeToRefs(usePlayersStore())
     const { editMode } = storeToRefs(useSettingsStore())
 </script>
 
@@ -18,7 +20,9 @@
         <div :class="$style.name">
             {{ player.name }}
         </div>
-        <div v-if="!editMode" :class="$style.score">
+        <div v-if="!editMode" :class="$style.score", :style="{
+            width: `${.45 + maxScoreLength * .55}em`,
+        }">
             <div :class="$style.text">
                 {{ scoreText }}
             </div>
