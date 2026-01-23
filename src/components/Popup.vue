@@ -75,6 +75,7 @@
             border-radius: .4em;
             opacity: 0;
             translate: 0 .5em;
+            z-index: 1000;
             transition: opacity $transition-time, translate $transition-time;
 
             .head {
@@ -144,7 +145,7 @@
             width: 100%;
             height: 100%;
             background-color: #0003;
-            z-index: -1;
+            z-index: 999;
             transition: opacity $transition-time;
         }
 
