@@ -9,6 +9,7 @@
     import AppButtonClearScores from './AppButtonClearScores.vue';
     import AppButtonAddScoresCancel from './AppButtonAddScoresCancel.vue';
     import AppButtonAddScoresConfirm from './AppButtonAddScoresConfirm.vue';
+    import AppButtonChart from './AppButtonChart.vue';
 
     const { editMode } = storeToRefs(useSettingsStore())
 </script>
@@ -23,6 +24,7 @@
                 <AppButtonClearScores />
                 <AppButtonClearPlayers />
                 <AppButtonFullscreen />
+                <AppButtonChart />
             </template>
             <template v-else>
                 <AppButtonAddScoresCancel />

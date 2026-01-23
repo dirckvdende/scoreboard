@@ -58,7 +58,11 @@
         align-items: center;
         flex-direction: column;
         justify-content: center;
-        padding: 1em;
+        padding:
+            calc(1em + env(safe-area-inset-top))
+            calc(1em + env(safe-area-inset-right))
+            calc(1em + env(safe-area-inset-bottom))
+            calc(1em + env(safe-area-inset-left));
         box-sizing: border-box;
         pointer-events: none;
 

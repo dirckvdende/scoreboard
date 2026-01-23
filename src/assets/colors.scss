@@ -1,7 +1,9 @@
 
 body {
-    background-color: #eee;
+    background-color: var(--background-color-body);
     color: var(--text-color);
+
+    --background-color-body: #eee;
 
     --background-color: white;
     --text-color: black;
@@ -11,6 +13,8 @@ body {
 
     --inverse-background-color: #333;
     --inverse-text-color: white;
+
+    --chart-grid-color: #ddd;
 
     --accent-color-green: #32a852;
     --accent-color-yellow: #cfa321;

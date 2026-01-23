@@ -1,7 +1,7 @@
 
 import { parseNextScore, type Player } from "@/types/Player";
 import { defineStore } from "pinia";
-import { computed, readonly, ref } from "vue";
+import { computed, ref } from "vue";
 
 /** Store with the list of players and functions to modify this list */
 export const usePlayersStore = defineStore("players", () => {
