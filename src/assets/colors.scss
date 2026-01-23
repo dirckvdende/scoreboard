@@ -38,14 +38,5 @@ body.dark-theme {
     --inverse-background-color: #eee;
     --inverse-text-color: #222;
 
-    --chart-grid-color: #222;
-
-    --accent-color-green: color-mix(in srgb, #32a852, black 10%);
-    --accent-color-yellow: color-mix(in srgb, #cfa321, black 10%);
-    --accent-color-blue: color-mix(in srgb, #3a67ba, black 10%);
-    --accent-color-pink: color-mix(in srgb, #c22f98, black 10%);
-    --accent-color-red: color-mix(in srgb, #cc2d52, black 10%);
-    --accent-color-cyan: color-mix(in srgb, #38a196, black 10%);
-    --accent-color-cyan-soft: color-mix(in srgb, #79b8b3, black 10%);
-    --accent-color-cyan-hard: color-mix(in srgb, #1d7f75, black 10%);
+    --chart-grid-color: #555;
 }

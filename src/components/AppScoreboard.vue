@@ -24,5 +24,6 @@
         flex-direction: column;
         align-items: stretch;
         max-width: 15em;
+        margin-top: 2em;
     }
 </style>

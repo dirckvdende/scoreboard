@@ -20,7 +20,7 @@
 
 <template>
     <button :class="$style.button" @click="emit('click')" :style="{
-        backgroundColor: `var(--accent-color-${color})`,
+        '--background-color': `var(--accent-color-${color})`,
     }">
         <Icon :class="$style.icon" :path="icon" />
         <div :class="$style.text">
@@ -31,7 +31,8 @@
 
 <style lang="scss" module>
     .button {
-        color: white;
+        --color: white;
+        color: var(--color);
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -43,9 +44,16 @@
         cursor: pointer;
         border-radius: .4em;
         flex-shrink: 0;
+        background-color: var(--background-color);
+
+        :global(.dark-theme) & {
+            --color: #eee;
+            background-color: color-mix(in srgb, var(--background-color),
+                transparent 50%);
+        }
 
         .icon {
-            fill: white;
+            fill: var(--color);
             width: 1.3em;
             height: 1.3em;
             margin-bottom: .2em;

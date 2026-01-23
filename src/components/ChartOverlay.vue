@@ -43,6 +43,8 @@
     ]
     const gridColor = useCssVar("--chart-grid-color", container,
         { observe: true })
+    const labelColor = useCssVar("--text-color-soft", container,
+        { observe: true })
 
     const { players, gameLength } = storeToRefs(usePlayersStore())
 
@@ -116,6 +118,7 @@
                                 position: 'bottom',
                                 onClick: () => {},
                                 labels: {
+                                    color: labelColor,
                                     font: {
                                         family: 'Lexend',
                                         size: 16,
@@ -161,6 +164,7 @@
                 padding: .4em;
                 border-radius: 50%;
                 cursor: pointer;
+                background-color: transparent;
 
                 .icon {
                     fill: var(--text-color-soft);
