@@ -2,24 +2,15 @@
     import "@/assets/style.scss";
     import AppScoreboard from './components/AppScoreboard.vue';
     import AppButtons from './components/AppButtons.vue';
-    import { useCssVar, useEventListener } from "@vueuse/core";
+    import { useHeightStore } from "./stores/useHeightStore";
 
-    const heightVar = useCssVar("--viewport-height", document.body,
-        { initialValue: "100vh" })
-
-    function updateHeight(): void {
-        heightVar.value = `${window.innerHeight}px`
-    }
-
-    // useEventListener("resize", updateHeight)
+    const { updateHeight } = useHeightStore()
     updateHeight()
 </script>
 
 <template>
-    <div :class="$style.container" :style="{
-        minHeight: `var(--viewport-height)`
-    }">
-        <div>
+    <div :class="$style.container" id="container">
+        <div :class="$style.content">
             <AppScoreboard />
             <AppButtons />
         </div>
@@ -28,19 +19,23 @@
 
 <style lang="scss" module>
     .container {
+        min-height: var(--viewport-height);
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
         width: 100%;
         box-sizing: border-box;
+        position: absolute;
+        top: 0;
+        left: 0;
         padding:
             calc(1.5em + env(safe-area-inset-top))
             calc(1.5em + env(safe-area-inset-right))
             calc(1.5em + env(safe-area-inset-bottom))
             calc(1.5em + env(safe-area-inset-left));
 
-        & > div {
+        .content {
             width: 100%;
             height: auto;
             max-width: 20em;

@@ -24,7 +24,7 @@
 </script>
 
 <template>
-    <Teleport to="body">
+    <Teleport to="#container" defer>
         <div :class="[$style.container, { [$style.visible]: visible }]">
             <div :class="$style.popup">
                 <div :class="$style.head">
@@ -49,7 +49,7 @@
     $transition-time: .2s;
 
     .container {
-        position: fixed;
+        position: absolute;
         top: 0;
         left: 0;
         width: 100%;

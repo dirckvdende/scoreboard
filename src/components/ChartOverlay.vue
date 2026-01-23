@@ -66,7 +66,7 @@
 </script>
 
 <template>
-    <Teleport to="body">
+    <Teleport to="#container" defer>
         <div :class="$style.container" v-if="visible" ref="container">
             <div :class="$style.head">
                 <button :class="$style.close" @click="visible = false">
@@ -132,7 +132,7 @@
 
 <style lang="scss" module>
     .container {
-        position: fixed;
+        position: absolute;
         top: 0;
         left: 0;
         width: 100%;
