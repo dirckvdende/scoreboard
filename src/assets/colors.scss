@@ -1,0 +1,51 @@
+
+body {
+    background-color: var(--background-color-body);
+    color: var(--text-color);
+
+    --background-color-body: #eee;
+
+    --background-color: white;
+    --text-color: black;
+    --text-color-soft: #555;
+    --text-color-very-soft: #777;
+    --text-color-faint: #aaa;
+
+    --inverse-background-color: #333;
+    --inverse-text-color: white;
+
+    --chart-grid-color: #ddd;
+
+    --accent-color-green: #32a852;
+    --accent-color-yellow: #cfa321;
+    --accent-color-blue: #3a67ba;
+    --accent-color-pink: #c22f98;
+    --accent-color-red: #cc2d52;
+    --accent-color-cyan: #38a196;
+    --accent-color-cyan-soft: #79b8b3;
+    --accent-color-cyan-hard: #1d7f75;
+}
+
+body.dark-theme {
+    --background-color-body: #333;
+
+    --background-color: #333;
+    --text-color: white;
+    --text-color-soft: #aaa;
+    --text-color-very-soft: #888;
+    --text-color-faint: #666;
+
+    --inverse-background-color: #eee;
+    --inverse-text-color: #222;
+
+    --chart-grid-color: #222;
+
+    --accent-color-green: color-mix(in srgb, #32a852, black 10%);
+    --accent-color-yellow: color-mix(in srgb, #cfa321, black 10%);
+    --accent-color-blue: color-mix(in srgb, #3a67ba, black 10%);
+    --accent-color-pink: color-mix(in srgb, #c22f98, black 10%);
+    --accent-color-red: color-mix(in srgb, #cc2d52, black 10%);
+    --accent-color-cyan: color-mix(in srgb, #38a196, black 10%);
+    --accent-color-cyan-soft: color-mix(in srgb, #79b8b3, black 10%);
+    --accent-color-cyan-hard: color-mix(in srgb, #1d7f75, black 10%);
+}
