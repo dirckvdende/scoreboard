@@ -3,7 +3,7 @@
 
 body {
     font-family: "Lexend", sans-serif;
-    font-size: min(5.8lvw, 4lvh, 32px);
+    font-size: min(5.8lvw, calc(.04 * var(--viewport-height)), 32px);
     margin: 0;
 }
 
