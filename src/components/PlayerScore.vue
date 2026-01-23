@@ -98,6 +98,7 @@
                 padding: .1em .2em .1em .4em;
                 font-size: .9em;
                 margin: .05em 0;
+                background-color: var(--background-color);
             }
         }
     }

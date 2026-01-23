@@ -10,6 +10,7 @@
     import AppButtonAddScoresCancel from './AppButtonAddScoresCancel.vue';
     import AppButtonAddScoresConfirm from './AppButtonAddScoresConfirm.vue';
     import AppButtonChart from './AppButtonChart.vue';
+    import AppButtonDarkMode from './AppButtonDarkMode.vue';
 
     const { editMode } = storeToRefs(useSettingsStore())
 </script>
@@ -23,8 +24,9 @@
                 <AppButtonAddPlayer />
                 <AppButtonClearScores />
                 <AppButtonClearPlayers />
-                <AppButtonFullscreen />
                 <AppButtonChart />
+                <AppButtonDarkMode />
+                <AppButtonFullscreen />
             </template>
             <template v-else>
                 <AppButtonAddScoresCancel />
@@ -40,7 +42,7 @@
         max-width: 15em;
         display: flex;
         align-items: flex-start;
-        min-height: 9em;
+        min-height: 12.6em;
         margin-top: .5em;
 
         & > div {

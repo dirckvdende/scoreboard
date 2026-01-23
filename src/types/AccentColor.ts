@@ -6,3 +6,5 @@ export type AccentColor =
     | "pink"
     | "red"
     | "cyan"
+    | "cyan-soft"
+    | "cyan-hard"

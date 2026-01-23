@@ -12,7 +12,7 @@
 </script>
 
 <template>
-    <ActionButton :icon="mdiFullscreen" color="cyan" @click="toggleFullscreen">
+    <ActionButton :icon="mdiFullscreen" color="cyan-hard" @click="toggleFullscreen">
         Fullscreen
     </ActionButton>
 </template>

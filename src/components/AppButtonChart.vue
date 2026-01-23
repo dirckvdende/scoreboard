@@ -20,7 +20,7 @@
 <template>
     <ActionButton
         :icon="mdiChartAreaspline"
-        color="pink"
+        color="cyan-soft"
         @click="click">
         Chart
     </ActionButton>
