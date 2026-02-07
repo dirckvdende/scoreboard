@@ -20,7 +20,7 @@
         <div :class="$style.name">
             {{ player.name }}
         </div>
-        <div v-if="!editMode" :class="$style.score", :style="{
+        <div v-if="!editMode" :class="$style.score" :style="{
             width: `${.45 + maxScoreLength * .55}em`,
         }">
             <div :class="$style.text">
