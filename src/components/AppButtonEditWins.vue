@@ -1,28 +1,26 @@
 <script lang="ts" setup>
     import { storeToRefs } from 'pinia';
     import ActionButton from './ActionButton.vue';
-    import { mdiPlus } from '@mdi/js';
+    import { mdiCrown } from '@mdi/js';
     import { useSettingsStore } from '@/stores/useSettingsStore';
     import { usePlayersStore } from '@/stores/usePlayersStore';
 
     const { mode } = storeToRefs(useSettingsStore())
     const { players } = storeToRefs(usePlayersStore())
-    const { resetNextScores } = usePlayersStore()
 
     /** Called when the button is clicked */
     function click(): void {
         if (players.value.length == 0)
             return
-        resetNextScores()
-        mode.value = "edit-scores"
+        mode.value = "edit-wins"
     }
 </script>
 
 <template>
     <ActionButton
-        :icon="mdiPlus"
-        color="green"
+        :icon="mdiCrown"
+        color="purple"
         @click="click">
-        Add scores
+        Edit wins
     </ActionButton>
 </template>

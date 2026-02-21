@@ -30,8 +30,7 @@
     <ActionButton
         :icon="mdiTrashCan"
         color="red"
-        @click="click"
-        :style="{ width: '7.6em' }">
+        @click="click">
         Clear players
     </ActionButton>
     <Popup v-model:visible="popupVisible">

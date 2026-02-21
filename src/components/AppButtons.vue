@@ -11,26 +11,32 @@
     import AppButtonAddScoresConfirm from './AppButtonAddScoresConfirm.vue';
     import AppButtonChart from './AppButtonChart.vue';
     import AppButtonDarkMode from './AppButtonDarkMode.vue';
+    import AppButtonCloseWins from './AppButtonCloseWins.vue';
+    import AppButtonEditWins from './AppButtonEditWins.vue';
 
-    const { editMode } = storeToRefs(useSettingsStore())
+    const { mode } = storeToRefs(useSettingsStore())
 </script>
 
 <template>
     <div :class="$style.container">
         <div>
-            <template v-if="!editMode">
+            <template v-if="mode == 'default'">
                 <AppButtonAddScores />
                 <AppButtonUndo />
                 <AppButtonAddPlayer />
+                <AppButtonEditWins />
                 <AppButtonClearScores />
                 <AppButtonClearPlayers />
                 <AppButtonChart />
                 <AppButtonDarkMode />
                 <AppButtonFullscreen />
             </template>
-            <template v-else>
+            <template v-if="mode == 'edit-scores'">
                 <AppButtonAddScoresCancel />
                 <AppButtonAddScoresConfirm />
+            </template>
+            <template v-if="mode == 'edit-wins'">
+                <AppButtonCloseWins />
             </template>
         </div>
     </div>

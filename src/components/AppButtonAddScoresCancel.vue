@@ -5,7 +5,7 @@
     import { useSettingsStore } from '@/stores/useSettingsStore';
     import { usePlayersStore } from '@/stores/usePlayersStore';
 
-    const { editMode } = storeToRefs(useSettingsStore())
+    const { mode } = storeToRefs(useSettingsStore())
     const { resetNextScores } = usePlayersStore()
 </script>
 
@@ -13,7 +13,7 @@
     <ActionButton
         :icon="mdiCancel"
         color="red"
-        @click="editMode = false; resetNextScores()">
+        @click="mode = 'default'; resetNextScores()">
         Don't add
     </ActionButton>
 </template>

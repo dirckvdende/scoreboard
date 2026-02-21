@@ -48,6 +48,7 @@ export const usePlayersStore = defineStore("players", () => {
             name,
             scores,
             nextScore: "",
+            wins: 0,
         })
         sort()
         return true

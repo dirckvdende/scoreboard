@@ -49,11 +49,11 @@
     $transition-time: .2s;
 
     .container {
-        position: absolute;
+        position: fixed;
         top: 0;
         left: 0;
         width: 100%;
-        min-height: 100%;
+        min-height: var(--viewport-height);
         display: flex;
         align-items: center;
         flex-direction: column;

@@ -4,6 +4,8 @@
     import { useSettingsStore } from '@/stores/useSettingsStore';
     import { type Player } from '@/types/Player';
     import { storeToRefs } from 'pinia';
+    import Icon from './Icon.vue';
+    import { mdiCrown, mdiCrownCircle, mdiMinus, mdiPlus } from '@mdi/js';
 
     const { player } = defineProps<{
         /** The player to display the score of */
@@ -12,15 +14,42 @@
 
     const { scoreText, scoreChange, scoreChangeText } = usePlayerScore(player)
     const { maxScoreLength } = storeToRefs(usePlayersStore())
-    const { editMode } = storeToRefs(useSettingsStore())
+    const { mode } = storeToRefs(useSettingsStore())
+
+    /** Decrement the number of wins of the player */
+    function decreaseWins(): void {
+        if (player.wins > 0)
+            player.wins--
+    }
+
+    /** Increment the number of wins of the player */
+    function increaseWins(): void {
+        player.wins++
+    }
 </script>
 
 <template>
     <div :class="$style.row">
         <div :class="$style.name">
             {{ player.name }}
+            <div :class="$style['win-icons']">
+                <template v-if="player.wins <= 10">
+                    <Icon
+                        v-for="_ in player.wins"
+                        :class="$style.icon"
+                        :path="mdiCrownCircle" />
+                </template>
+                <template v-else>
+                    <div :class="$style.number">
+                        {{ player.wins.toFixed() }} ×
+                    </div>
+                    <Icon
+                        :class="$style.icon"
+                        :path="mdiCrownCircle" />
+                </template>
+            </div>
         </div>
-        <div v-if="!editMode" :class="$style.score" :style="{
+        <div v-if="mode == 'default'" :class="$style.score" :style="{
             width: `${.45 + maxScoreLength * .55}em`,
         }">
             <div :class="$style.text">
@@ -34,13 +63,21 @@
                 {{ scoreChangeText }}
             </div>
         </div>
-        <div v-else :class="$style.edit">
+        <div v-if="mode == 'edit-scores'" :class="$style.edit">
             <input
                 :class="$style.input"
                 type="number"
                 :value="player.nextScore"
                 @input="player.nextScore = String(($event.target as any).value)"
                 />
+        </div>
+        <div v-if="mode == 'edit-wins'" :class="$style['edit-wins']">
+            <button :class="$style['modifier-button']" @click="decreaseWins">
+                <Icon :path="mdiMinus" :class="$style.icon" />
+            </button>
+            <button :class="$style['modifier-button']" @click="increaseWins">
+                <Icon :path="mdiPlus" :class="$style.icon" />
+            </button>
         </div>
     </div>
 </template>
@@ -52,6 +89,7 @@
         font-size: 2em;
         align-items: center;
         height: 1.7em;
+        position: relative;
 
         .name {
             width: 100%;
@@ -63,6 +101,32 @@
             padding-right: .3em;
             box-sizing: border-box;
             font-size: .9em;
+        }
+
+        .win-icons {
+            pointer-events: none;
+            user-select: none;
+            position: absolute;
+            bottom: -.45em;
+            left: 0;
+            width: 100%;
+            overflow: hidden;
+            height: 1em;
+            display: flex;
+            align-items: center;
+
+            .number {
+                font-size: .4em;
+                margin-right: .3em;
+                color: var(--accent-color-yellow);
+            }
+
+            .icon {
+                height: .5em;
+                width: .5em;
+                flex-shrink: 0;
+                fill: var(--accent-color-yellow);
+            }
         }
 
         .score {
@@ -99,6 +163,34 @@
                 font-size: .9em;
                 margin: .05em 0;
                 background-color: var(--background-color);
+            }
+        }
+
+        .edit-wins {
+            width: 2.5em;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+
+            .modifier-button {
+                display: block;
+                width: 1em;
+                height: 1em;
+                box-sizing: border-box;
+                padding: .15em;
+                margin-left: .2em;
+                border-radius: 50%;
+                background-color: var(--inverse-background-color);
+                cursor: pointer;
+
+                .icon {
+                    fill: var(--inverse-text-color);
+                }
+
+                &:hover {
+                    opacity: .8;
+                }
             }
         }
     }

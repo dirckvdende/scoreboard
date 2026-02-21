@@ -3,17 +3,15 @@
     import ActionButton from './ActionButton.vue';
     import { mdiCheck } from '@mdi/js';
     import { useSettingsStore } from '@/stores/useSettingsStore';
-    import { usePlayersStore } from '@/stores/usePlayersStore';
 
     const { mode } = storeToRefs(useSettingsStore())
-    const { addNextScores, resetNextScores } = usePlayersStore()
 </script>
 
 <template>
     <ActionButton
         :icon="mdiCheck"
         color="green"
-        @click="addNextScores(); mode = 'default'; resetNextScores()">
-        Add scores
+        @click="mode = 'default';">
+        Confirm
     </ActionButton>
 </template>

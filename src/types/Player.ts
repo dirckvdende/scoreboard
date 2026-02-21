@@ -10,6 +10,8 @@ export type Player = {
      * because it's sources from an input field
      */
     nextScore: string
+    /** Number of times the player has won (users add wins manually) */
+    wins: number
 }
 
 /**

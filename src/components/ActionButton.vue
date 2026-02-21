@@ -62,7 +62,7 @@
 
         .text {
             width: 100%;
-            font-size: .5em;
+            font-size: .44em;
             text-align: center;
         }
 

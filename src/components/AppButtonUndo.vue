@@ -6,13 +6,13 @@
     import { useSettingsStore } from '@/stores/useSettingsStore';
 
     const { undo } = usePlayersStore()
-    const { editMode } = storeToRefs(useSettingsStore())
+    const { mode } = storeToRefs(useSettingsStore())
 
     /** Called when the button is clicked */
     function click(): void {
         const done = undo()
         if (done)
-            editMode.value = true
+            mode.value = "edit-scores"
     }
 </script>
 
